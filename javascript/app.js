@@ -15,3 +15,16 @@ class Question {
     this.answers = [obj.answer1, obj.answer2, obj.answer3]
   }
 }
+
+function initializeGame() {
+  let questionDiv = document.getElementById("question");
+  let answerDiv = document.getElementById("answerChoices");
+  // questionDiv.innerHTML = "";
+  // answerDiv.innerHTML = "";
+  QuestionObject = new Question;
+  questionDiv.innerHTML = QuestionObject.question;
+  answerDiv.innerHTML = "<ul><p>" + QuestionObject.answers[0] + "</p><p>" + QuestionObject.answers[1] + "</p><p>" + QuestionObject.answers[2] + "</p></ul>"
+
+}
+
+initializeGame()
