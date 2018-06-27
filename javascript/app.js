@@ -12,14 +12,6 @@ questionObjects = [
 class Question {
   constructor(obj = questionObjects[Math.floor(Math.random() * questionObjects.length)]) {
     this.question = obj.question;
-    this.answers = [];
-    function doThis() {
-      for (var i = 0; i < obj.keys().length; i++) {
-        if(!obj.keys()[i] == question) {
-          this.answers.push(obj.keys()[i]);
-        }
-      }
-    }
-    doThis()
+    this.answers = [obj.answer1, obj.answer2, obj.answer3]
   }
 }
