@@ -15,17 +15,23 @@ class Question {
     this.answers = [obj.answer1, obj.answer2, obj.answer3]
   }
 }
-
-let timer = 0;
+let timeInterval;
 function startTimer() {
-  setInterval(() => {
-    timer++;
+  timeInterval = setInterval(() => {
+    timer--;
     document.getElementById("timeRemaining").innerHTML = timeConverter(timer);
+    if (timer < 0) {
+      document.getElementById("timeRemaining").innerHTML = "<span>00 <strong> Time's up! <strong></span>"
+      clearInterval(timeInterval);
+      setTimeout(initializeGame, 3000);
+    };
   }, 1000)
 }
 
 function initializeGame() {
-  clearInterval(timer);
+  timer = 3;
+  document.getElementById("timeRemaining").innerHTML = timeConverter(timer);
+  clearInterval(timeInterval);
   startTimer();
   let questionDiv = document.getElementById("question");
   let answerDiv = document.getElementById("answerChoices");
@@ -47,14 +53,14 @@ function timeConverter(t) {
   if (seconds < 10) {
     seconds = "0" + seconds;
   }
+  //
+  // if (minutes === 0) {
+  //   minutes = "00";
+  // }
+  //
+  // else if (minutes < 10) {
+  //   minutes = "0" + minutes;
+  // }
 
-  if (minutes === 0) {
-    minutes = "00";
-  }
-
-  else if (minutes < 10) {
-    minutes = "0" + minutes;
-  }
-
-  return minutes + ":" + seconds;
+  return seconds;
 }
