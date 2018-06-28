@@ -1,18 +1,20 @@
 // TODO: Create an object that uses a constructor to make itself using a randomly chosen index from array of objects
 
 questionObjects = [
-  {question: "Question1", answer1: "Answer1", answer2: "Answer2", answer3: "Answer3"},
-  {question: "Question2", answer1: "Answer1", answer2: "Answer2", answer3: "Answer3"},
-  {question: "Question3", answer1: "Answer1", answer2: "Answer2", answer3: "Answer3"},
-  {question: "Question4", answer1: "Answer1", answer2: "Answer2", answer3: "Answer3"},
-  {question: "Question5", answer1: "Answer1", answer2: "Answer2", answer3: "Answer3"},
-  {question: "Question6", answer1: "Answer1", answer2: "Answer2", answer3: "Answer3"}
+  {question: "Question1", wrong1: "Answer1", wrong2: "Answer2", wrong3: "Answer3", right: "Answer4"},
+  {question: "Question2", wrong1: "Answer1", wrong2: "Answer2", wrong3: "Answer3", right: "Answer4"},
+  {question: "Question3", wrong1: "Answer1", wrong2: "Answer2", wrong3: "Answer3", right: "Answer4"},
+  {question: "Question4", wrong1: "Answer1", wrong2: "Answer2", wrong3: "Answer3", right: "Answer4"},
+  {question: "Question5", wrong1: "Answer1", wrong2: "Answer2", wrong3: "Answer3", right: "Answer4"},
+  {question: "Question6", wrong1: "Answer1", wrong2: "Answer2", wrong3: "Answer3", right: "Answer4"}
 ];
 
 class Question {
   constructor(obj = questionObjects[Math.floor(Math.random() * questionObjects.length)]) {
     this.question = obj.question;
-    this.answers = [obj.answer1, obj.answer2, obj.answer3]
+    this.choices = [obj.wrong1, obj.wrong2, obj.wrong3, obj.right]
+    this.rightChoice = this.choices[3]
+    shuffle(this.choices);
   }
 }
 let timeInterval;
@@ -39,7 +41,7 @@ function initializeGame() {
   // answerDiv.innerHTML = "";
   QuestionObject = new Question;
   questionDiv.innerHTML = QuestionObject.question;
-  answerDiv.innerHTML = "<ul><p>" + QuestionObject.answers[0] + "</p><p>" + QuestionObject.answers[1] + "</p><p>" + QuestionObject.answers[2] + "</p></ul>"
+  answerDiv.innerHTML = "<ul><p>" + QuestionObject.choices[0] + "</p><p>" + QuestionObject.choices[1] + "</p><p>" + QuestionObject.choices[2] + "</p><p>" + QuestionObject.choices[3] + "</p></ul>"
 }
 
 initializeGame();
@@ -63,4 +65,17 @@ function timeConverter(t) {
   // }
 
   return seconds;
+}
+
+// Fisher-Yates shuffler...
+
+function shuffle(a) {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = a[i];
+        a[i] = a[j];
+        a[j] = x;
+    }
+    return a;
 }
