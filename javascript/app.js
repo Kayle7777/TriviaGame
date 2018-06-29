@@ -12,7 +12,7 @@ questionObjects = [
 class Question {
   constructor(obj = questionObjects[Math.floor(Math.random() * questionObjects.length)]) {
     this.question = obj.question;
-    this.choices = [obj.wrong1, obj.wrong2, obj.wrong3, obj.right]
+    this.choices = [{name:obj.wrong1, value:false}, {name:obj.wrong2, value:false}, {name:obj.wrong3, value:false}, {name:obj.right, value:true}]
     this.rightChoice = this.choices[3]
     shuffle(this.choices);
   }
@@ -37,11 +37,21 @@ function initializeGame() {
   startTimer();
   let questionDiv = document.getElementById("question");
   let answerDiv = document.getElementById("answerChoices");
-  // questionDiv.innerHTML = "";
-  // answerDiv.innerHTML = "";
+
   QuestionObject = new Question;
   questionDiv.innerHTML = QuestionObject.question;
-  answerDiv.innerHTML = "<ul><p>" + QuestionObject.choices[0] + "</p><p>" + QuestionObject.choices[1] + "</p><p>" + QuestionObject.choices[2] + "</p><p>" + QuestionObject.choices[3] + "</p></ul>"
+
+  // Make buttons dynamic / with values of true or false for correct or incorrect
+  answerDiv.innerHTML = "";
+  QuestionObject.choices.map((x) => {
+    let newButton = document.createElement('button');
+    let textNode = document.createTextNode(x.name);
+    let br = document.createElement('br');
+    newButton.setAttribute("value", x.value);
+    newButton.appendChild(textNode);
+    answerDiv.appendChild(br);
+    answerDiv.appendChild(newButton)
+  })
 }
 
 initializeGame();
