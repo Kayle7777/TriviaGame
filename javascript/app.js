@@ -36,7 +36,7 @@ function initializeGame() {
   timer = 3;
   document.getElementById("timeRemaining").innerHTML = timeConverter(timer);
   clearInterval(timeInterval);
-  startTimer();``
+  startTimer();
 // ===================================================================================
   let questionDiv = document.getElementById("question");
   let answerDiv = document.getElementById("answerChoices");
@@ -45,11 +45,17 @@ function initializeGame() {
 // ===================================================================================
 // Make buttons dynamic / with values of true or false for correct or incorrect
   answerDiv.innerHTML = "";
-  QuestionObject.choices.map((x) => {
+
+  let newButtons = QuestionObject.choices.map((x) => {
     let newButton = document.createElement('button');
     let textNode = document.createTextNode(x.name);
     let br = document.createElement('br');
     newButton.setAttribute("value", x.value);
+
+    // Put all button functionality here
+    newButton.onclick = () => {console.log(x.value)}
+  // ===================================================================================
+
     newButton.appendChild(textNode);
     answerDiv.appendChild(br);
     answerDiv.appendChild(newButton)
