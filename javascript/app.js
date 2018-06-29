@@ -19,11 +19,13 @@ class Question {
 }
 let timeInterval;
 function startTimer() {
+  let timeRemainingDiv = document.getElementById("timeRemaining")
+
   timeInterval = setInterval(() => {
     timer--;
-    document.getElementById("timeRemaining").innerHTML = timeConverter(timer);
+    timeRemainingDiv.innerHTML = timeConverter(timer);
     if (timer < 0) {
-      document.getElementById("timeRemaining").innerHTML = "<span>00 <strong> Time's up! <strong></span>"
+      timeRemainingDiv.innerHTML = "<span>00 <strong> Time's up! <strong></span>"
       clearInterval(timeInterval);
       setTimeout(initializeGame, 3000);
     };
@@ -34,14 +36,14 @@ function initializeGame() {
   timer = 3;
   document.getElementById("timeRemaining").innerHTML = timeConverter(timer);
   clearInterval(timeInterval);
-  startTimer();
+  startTimer();``
+// ===================================================================================
   let questionDiv = document.getElementById("question");
   let answerDiv = document.getElementById("answerChoices");
-
   QuestionObject = new Question;
   questionDiv.innerHTML = QuestionObject.question;
-
-  // Make buttons dynamic / with values of true or false for correct or incorrect
+// ===================================================================================
+// Make buttons dynamic / with values of true or false for correct or incorrect
   answerDiv.innerHTML = "";
   QuestionObject.choices.map((x) => {
     let newButton = document.createElement('button');
@@ -55,6 +57,7 @@ function initializeGame() {
 }
 
 initializeGame();
+// ===================================================================================
 
 function timeConverter(t) {
 
@@ -65,19 +68,11 @@ function timeConverter(t) {
   if (seconds < 10) {
     seconds = "0" + seconds;
   }
-  //
-  // if (minutes === 0) {
-  //   minutes = "00";
-  // }
-  //
-  // else if (minutes < 10) {
-  //   minutes = "0" + minutes;
-  // }
 
   return seconds;
 }
 
-// Fisher-Yates shuffler...
+// Fisher-Yates shuffler for shuffling my choices array
 
 function shuffle(a) {
     var j, x, i;
