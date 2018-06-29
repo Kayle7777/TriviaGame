@@ -17,64 +17,67 @@ class Question {
     shuffle(this.choices);
   }
 }
+
+
 let timeInterval;
 function startTimer() {
   let timeRemainingDiv = document.getElementById("timeRemaining")
-
   timeInterval = setInterval(() => {
     timer--;
     timeRemainingDiv.innerHTML = timeConverter(timer);
     if (timer < 0) {
       timeRemainingDiv.innerHTML = "<span>00 <strong> Time's up! <strong></span>"
       clearInterval(timeInterval);
-      setTimeout(initializeGame, 3000);
+      setTimeout(gameFunction, 3000);
     };
   }, 1000)
 }
-
-function initializeGame() {
-  timer = 3;
+let timer = 29
+// ===================================================================================
+let questionDiv = document.getElementById("question");
+let answerDiv = document.getElementById("answerChoices");
+function gameFunction() {
+  timer = 29;
   document.getElementById("timeRemaining").innerHTML = timeConverter(timer);
   clearInterval(timeInterval);
   startTimer();
 // ===================================================================================
-  let questionDiv = document.getElementById("question");
-  let answerDiv = document.getElementById("answerChoices");
   QuestionObject = new Question;
   questionDiv.innerHTML = QuestionObject.question;
 // ===================================================================================
-// Make buttons dynamic / with values of true or false for correct or incorrect
+  // Make buttons dynamic / with values of true or false for correct or incorrect
   answerDiv.innerHTML = "";
 
-  let newButtons = QuestionObject.choices.map((x) => {
+  let buttonMaker = QuestionObject.choices.map((x) => {
     let newButton = document.createElement('button');
     let textNode = document.createTextNode(x.name);
     let br = document.createElement('br');
-    newButton.setAttribute("value", x.value);
-
-    // Put all button functionality here
-    newButton.onclick = () => {console.log(x.value)}
   // ===================================================================================
-
+    // Put button functionality here
+    newButton.onclick = () => {
+      console.log(x.value)
+    }
+  // ===================================================================================
+    newButton.setAttribute("value", x.value);
     newButton.appendChild(textNode);
-    answerDiv.appendChild(br);
     answerDiv.appendChild(newButton)
+    answerDiv.appendChild(br);
   })
 }
 
-initializeGame();
+// First time game initialization
+gameFunction();
+
+
 // ===================================================================================
-
+  // Borrowed code
 function timeConverter(t) {
-
   //  Takes the current time in seconds and convert it to minutes and seconds (mm:ss).
   var minutes = Math.floor(t / 60);
   var seconds = t - (minutes * 60);
-
   if (seconds < 10) {
     seconds = "0" + seconds;
   }
-
   return seconds;
 }
 
