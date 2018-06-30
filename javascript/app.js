@@ -12,7 +12,6 @@ class Question {
   constructor(obj = questionObjects[Math.floor(Math.random() * questionObjects.length)]) {
     this.question = obj.question;
     this.choices = [{name:obj.wrong1, value:false}, {name:obj.wrong2, value:false}, {name:obj.wrong3, value:false}, {name:obj.right, value:true}]
-    this.rightChoice = this.choices[3]
     shuffle(this.choices);
   }
 }
