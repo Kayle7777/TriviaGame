@@ -1,4 +1,3 @@
-// TODO: Create an object that uses a constructor to make itself using a randomly chosen index from array of objects
 
 questionObjects = [
   {question: "Question1", wrong1: "Answer1", wrong2: "Answer2", wrong3: "Answer3", right: "Answer4"},
@@ -32,12 +31,13 @@ function startTimer() {
     };
   }, 1000)
 }
-let timer = 29
+
 // ===================================================================================
+let timer;
 let questionDiv = document.getElementById("question");
 let answerDiv = document.getElementById("answerChoices");
 function gameFunction() {
-  timer = 29;
+  timer = 3;
   document.getElementById("timeRemaining").innerHTML = timeConverter(timer);
   clearInterval(timeInterval);
   startTimer();
@@ -45,12 +45,12 @@ function gameFunction() {
   QuestionObject = new Question;
   questionDiv.innerHTML = QuestionObject.question;
 // ===================================================================================
-  // Make buttons dynamic / with values of true or false for correct or incorrect
+  // This makes buttons dynamic with values of true or false for correct or incorrect
   answerDiv.innerHTML = "";
 
   let buttonMaker = QuestionObject.choices.map((x) => {
-    let newButton = document.createElement('button');
     let textNode = document.createTextNode(x.name);
+    let newButton = document.createElement('button');
     let br = document.createElement('br');
   // ===================================================================================
     // Put button functionality here
