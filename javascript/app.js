@@ -11,6 +11,7 @@ questionObjects = [
 class Question {
   constructor(obj = questionObjects[Math.floor(Math.random() * questionObjects.length)]) {
     this.question = obj.question;
+    // TODO: Make this.choices dynamically create these in case some questions have more than 4 answers. Not sure how to go about doing that just yet.
     this.choices = [{name:obj.wrong1, value:false}, {name:obj.wrong2, value:false}, {name:obj.wrong3, value:false}, {name:obj.right, value:true}]
     shuffle(this.choices);
   }
