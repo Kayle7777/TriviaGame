@@ -32,9 +32,7 @@ function startTimer() {
 }
 
 // ===================================================================================
-let timer;
-let questionDiv = document.getElementById("question");
-let answerDiv = document.getElementById("answerChoices");
+let timer, questionDiv = document.getElementById("question"), answerDiv = document.getElementById("answerChoices");
 function gameFunction() {
   timer = 3;
   document.getElementById("timeRemaining").innerHTML = timeConverter(timer);
@@ -59,7 +57,7 @@ function gameFunction() {
   // ===================================================================================
     newButton.setAttribute("value", x.value);
     newButton.appendChild(textNode);
-    answerDiv.appendChild(newButton)
+    answerDiv.appendChild(newButton);
     answerDiv.appendChild(br);
   })
 }
