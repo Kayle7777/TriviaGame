@@ -90,7 +90,7 @@ function startTimer() {
     timer--;
     timeRemainingDiv.innerHTML = `<strong>${timeConverter(timer)}</strong>`;
     if (timer == 0) {
-      timeRemainingDiv.innerHTML = `<span>${timer}<strong> Time's up! <strong></span>`
+      timeRemainingDiv.innerHTML = `<strong><span>${timer} Time's up! <strong></span>`
       clearInterval(timeInterval);
       setTimeout(gameFunction, 2500);
     };
