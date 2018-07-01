@@ -124,10 +124,12 @@ function gameFunction() {
         clearInterval(timeInterval);
         setTimeout(gameFunction, 2500);
       }else {
+        // TODO: Make it so if you lose, you can't change your answer
         timeRemainingDiv.innerHTML = `<span>${timeConverter(timer)}<strong> Wrong! You lose!! <strong></span>`
         clearInterval(timeInterval);
         setTimeout(gameFunction, 2500);
       }
+      Array.from(answerDiv.children).map((x) => {x.onclick =() => null})
     }
   // ===================================================================================
     newButton.setAttribute("value", x.value);
