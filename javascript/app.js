@@ -120,12 +120,12 @@ function gameFunction() {
     newButton.onclick = () => {
       console.log(x.value)
       if(x.value) {
-        timeRemainingDiv.innerHTML = `<span>${timeConverter(timer)}<strong> Right! You win!! <strong></span>`
+        timeRemainingDiv.innerHTML = `<span><strong>${timeConverter(timer)} Right! You win!! <strong></span>`
         clearInterval(timeInterval);
         setTimeout(gameFunction, 2500);
       }else {
         // TODO: Make it so if you lose, you can't change your answer
-        timeRemainingDiv.innerHTML = `<span>${timeConverter(timer)}<strong> Wrong! You lose!! <strong></span>`
+        timeRemainingDiv.innerHTML = `<span><strong>${timeConverter(timer)} Wrong! You lose!! <strong></span>`
         clearInterval(timeInterval);
         setTimeout(gameFunction, 2500);
       }
