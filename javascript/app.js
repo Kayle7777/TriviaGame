@@ -92,7 +92,7 @@ function startTimer() {
     if (timer == 0) {
       timeRemainingDiv.innerHTML = "<span>00 <strong> Time's up! <strong></span>"
       clearInterval(timeInterval);
-      setTimeout(gameFunction, 3000);
+      setTimeout(gameFunction, 2500);
     };
   }, 1000)
 }
@@ -100,7 +100,7 @@ function startTimer() {
 // ===================================================================================
 let timer, questionDiv = document.getElementById("question"), answerDiv = document.getElementById("answerChoices");
 function gameFunction() {
-  timer = 30;
+  timer = 15;
   document.getElementById("timeRemaining").innerHTML = timeConverter(timer);
   clearInterval(timeInterval);
   startTimer();
@@ -122,11 +122,11 @@ function gameFunction() {
       if(x.value) {
         timeRemainingDiv.innerHTML = `<span>${timeConverter(timer)}<strong> Right! You win!! <strong></span>`
         clearInterval(timeInterval);
-        setTimeout(gameFunction, 3000);
+        setTimeout(gameFunction, 2500);
       }else {
         timeRemainingDiv.innerHTML = `<span>${timeConverter(timer)}<strong> Wrong! You lose!! <strong></span>`
         clearInterval(timeInterval);
-        setTimeout(gameFunction, 3000);
+        setTimeout(gameFunction, 2500);
       }
     }
   // ===================================================================================
