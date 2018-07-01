@@ -88,9 +88,9 @@ let timeRemainingDiv = document.getElementById("timeRemaining")
 function startTimer() {
   timeInterval = setInterval(() => {
     timer--;
-    timeRemainingDiv.innerHTML = timeConverter(timer);
+    timeRemainingDiv.innerHTML = `<strong>${timeConverter(timer)}</strong>`;
     if (timer == 0) {
-      timeRemainingDiv.innerHTML = "<span>00 <strong> Time's up! <strong></span>"
+      timeRemainingDiv.innerHTML = `<span>${timer}<strong> Time's up! <strong></span>`
       clearInterval(timeInterval);
       setTimeout(gameFunction, 2500);
     };
@@ -101,7 +101,7 @@ function startTimer() {
 let timer, questionDiv = document.getElementById("question"), answerDiv = document.getElementById("answerChoices");
 function gameFunction() {
   timer = 15;
-  document.getElementById("timeRemaining").innerHTML = timeConverter(timer);
+  document.getElementById("timeRemaining").innerHTML = `<strong>${timeConverter(timer)}</strong>`;
   clearInterval(timeInterval);
   startTimer();
 // ===================================================================================
