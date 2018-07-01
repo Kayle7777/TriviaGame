@@ -129,6 +129,7 @@ function gameFunction() {
         clearInterval(timeInterval);
         setTimeout(gameFunction, 2500);
       }
+      // To prevent clicking buttons too many times, and running the functions too much before gameFunction starts.
       Array.from(answerDiv.children).map((x) => {x.onclick =() => null})
     }
   // ===================================================================================
