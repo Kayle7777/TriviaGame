@@ -68,8 +68,15 @@ questionObjects = [
     wrong2: "Frodo",
     wrong3: "Gandalf",
     right: "All of the Above"
+  },
+  {
+    question: "Treebeard the ent is fascinated with Merry and Pippin's stories about the shire, why?"
+    wrong1: "He enjoys the hobbits' descriptions of the flowers",
+    wrong2: "He wants to go and live in the forests there",
+    wrong3: "He thinks the hobbits are making it up, because he doesn't know there is any other forest than his own",
+    right: "He thinks there is a chance the Entwives might be there, because it sounds like a place they woul like"
   }
-
+  
 ];
 
 
