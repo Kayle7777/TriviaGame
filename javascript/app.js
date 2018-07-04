@@ -74,7 +74,7 @@ questionObjects = [
     wrong1: "He enjoys the hobbits' descriptions of the flowers",
     wrong2: "He wants to go and live in the forests there",
     wrong3: "He thinks the hobbits are making it up, because he doesn't know there is any other forest than his own",
-    right: "He thinks there is a chance the Entwives might be there, because it sounds like a place they woul like"
+    right: "He thinks there is a chance the Entwives might be there, because it sounds like a place they would like"
   }
 
 ];
@@ -83,7 +83,6 @@ questionObjects = [
 class Question {
   constructor(obj = questionObjects[Math.floor(Math.random() * questionObjects.length)]) {
     this.question = obj.question;
-    // TODO: Make this.choices dynamically create these in case some questions have more than 4 answers. Not sure how to go about doing that just yet.
     this.choices = [{name:obj.wrong1, value:false}, {name:obj.wrong2, value:false}, {name:obj.wrong3, value:false}, {name:obj.right, value:true}]
     shuffle(this.choices);
   }
@@ -131,7 +130,6 @@ function gameFunction() {
         clearInterval(timeInterval);
         setTimeout(gameFunction, 2500);
       }else {
-        // TODO: Make it so if you lose, you can't change your answer
         timeRemainingDiv.innerHTML = `<span><strong>${timeConverter(timer)} Wrong! You lose!! <strong></span>`
         clearInterval(timeInterval);
         setTimeout(gameFunction, 2500);
