@@ -8,7 +8,7 @@ A little Lord of the Rings trivia game I made. At the time, I didn't like jQuery
 
 ## Notable Concepts / Technologies Used
 
-* **Class / Object constructors*
+* **Class / Object constructors**
 
 ## Links
 
