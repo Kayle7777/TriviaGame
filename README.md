@@ -6,9 +6,14 @@ A little Lord of the Rings trivia game I made. At the time, I didn't like jQuery
 
 * **Jesse Webb** - *All JS, html, CSS* - [Kayle7777](https://github.com/kayle7777)
 
+* ****
+
 ## Notable Concepts / Technologies Used
 
-* **Class / Object constructors**
+* *Class / Object constructors*
+* *Bootstrap*
+
+* ****
 
 ## Links
 
